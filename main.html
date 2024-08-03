@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chord Practice App</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4;
+      }
+
+      .container {
+        text-align: center;
+        background: #fff;
+        padding: 64px 48px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 1140px;
+        margin: auto;
+      }
+
+      .display {
+        margin: 20px 0;
+      }
+
+      .hint {
+        font-size: 1em;
+        margin: 10px 0;
+        color: #999;
+        font-weight: 600;
+      }
+      .word {
+        font-size: 2.5em;
+        margin: 10px 0;
+      }
+
+      input[type="text"] {
+        padding: 10px;
+        font-size: 1em;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      #result {
+        margin-top: 20px;
+        font-size: 1em;
+      }
+      #settings {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #ccc;
+        padding: 18px 6px;
+        margin-block: 12px;
+      }
+      #settings h3 {
+        margin: 0 0 12px 0;
+      }
+      #settings input:not(:last-of-type) {
+        margin-bottom: 12px;
+      }
+      #settings-toggle:has(:checked) + #settings {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Chord Practice App</h1>
+      <input type="file" id="file-input" accept=".txt, .tsv" />
+      <div id="settings-toggle">
+        <input type="checkbox" id="settings-checkbox" />
+        <label for="settings-checkbox">Settings</label>
+      </div>
+      <div id="settings">
+        <h3>Settings</h3>
+        <label for="loop-count-input">Times to repeat per session:</label>
+        <input
+          type="number"
+          id="loop-count-input"
+          min="1"
+          max="100"
+          value="5"
+        />
+        <label for="new-words-per-loop-input">New words per session:</label>
+        <input
+          type="number"
+          id="new-words-per-loop-input"
+          min="1"
+          max="100"
+          value="5"
+        />
+        <label for="hint-delay">Hint delay:</label>
+        <input
+          type="number"
+          name="hint delay"
+          id="hint-delay"
+          min="0.0"
+          value="2"
+        />
+      </div>
+      <div class="display">
+        <div class="word">Word: <span id="word"></span></div>
+        <div class="hint">Chord: <span id="chord"></span></div>
+      </div>
+      <input type="text" id="text-input" placeholder="Type the word here..." />
+      <div id="result"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
