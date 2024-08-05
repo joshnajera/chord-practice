@@ -80,8 +80,8 @@ function handleUserInput(event) {
     event.target.value = "";
     return;
   }
-  const userInput = event.target.value;
-  const currentWord = parsedData[indexList[currentIndex]]?.word.trim() + " ";
+  const userInput = event.target.value.trim();
+  const currentWord = parsedData[indexList[currentIndex]]?.word.trim();
 
   console.log(
     "userInput: '" + userInput + "' currentWord: '" + currentWord + "'"
